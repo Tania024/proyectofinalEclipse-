@@ -10,44 +10,33 @@ import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.Query;
 
 @Stateless
-public class UsuarioDAO implements Serializable{
-	@PersistenceContext
-    private EntityManager em;
-    
-    public void insert(Usuario usuario) {
-        em.persist(usuario);
-    }
+public class UsuarioDAO {
 
-    public void update(Usuario usuario) {
-        em.merge(usuario);
-    }
-    
-    public Usuario read(Long id) {
-        return em.find(Usuario.class, id);
-    }
-    
-    public void delete(Long id) {
-        Usuario usuario = em.find(Usuario.class, id);
-        if (usuario != null) {
-            em.remove(usuario);
-        }
-    }
-    
-    public List<Usuario> getAll() {
-        String jpql = "SELECT u FROM Usuario u";
-        Query query = em.createQuery(jpql, Usuario.class);
+    @PersistenceContext()
+    private EntityManager entityManager;
+
+    public List<Usuario> findAll() {
+        String jpql = "SELECT c FROM Usuario c";
+        Query query = entityManager.createQuery(jpql, Usuario.class);
         return query.getResultList();
     }
 
-    public Usuario findByEmail(String email) {
-        String jpql = "SELECT u FROM Usuario u WHERE u.email = :email";
-        Query query = em.createQuery(jpql, Usuario.class);
-        query.setParameter("email", email);
-        List<Usuario> usuarios = query.getResultList();
-        if (usuarios.isEmpty()) {
-            return null;
-        } else {
-            return usuarios.get(0);
+    public Usuario findById(Long id) {
+        return entityManager.find(Usuario.class, id);
+    }
+
+    public void create(Usuario usuario) {
+        entityManager.persist(usuario);
+    }
+
+    public void update(Usuario usuario) {
+        entityManager.merge(usuario);
+    }
+
+    public void delete(Long id) {
+        Usuario usuario = findById(id);
+        if (usuario != null) {
+            entityManager.remove(usuario);
         }
     }
 
