@@ -18,7 +18,7 @@ public class Prestamo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
 
     private Double monto;
     private Double tasaInteres;
@@ -36,19 +36,19 @@ public class Prestamo {
     private Usuario usuario;
 
     // Getters and Setters
-    public Long getId() {
-        return id;
-    }
+    public int getId() {
+		return id;
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public void setId(int id) {
+		this.id = id;
+	}
 
     public Double getMonto() {
         return monto;
     }
 
-    public void setMonto(Double monto) {
+	public void setMonto(Double monto) {
         this.monto = monto;
     }
 

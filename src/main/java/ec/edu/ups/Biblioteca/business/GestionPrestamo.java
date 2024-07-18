@@ -17,7 +17,7 @@ public class GestionPrestamo {
         return prestamoDAO.findAll();
     }
 
-    public Prestamo getPrestamoById(Long id) {
+    public Prestamo getPrestamoById(int id) {
         return prestamoDAO.findById(id);
     }
 
@@ -30,7 +30,7 @@ public class GestionPrestamo {
         prestamoDAO.update(prestamo);
     }
 
-    public void deletePrestamo(Long id) {
+    public void deletePrestamo(int id) {
         prestamoDAO.delete(id);
     }
 }

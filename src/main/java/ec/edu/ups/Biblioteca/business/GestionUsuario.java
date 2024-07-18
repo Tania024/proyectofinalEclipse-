@@ -17,7 +17,7 @@ public class GestionUsuario {
         return usuarioDAO.findAll();
     }
 
-    public Usuario getUsuarioById(Long id) {
+    public Usuario getUsuarioById(int id) {
         return usuarioDAO.findById(id);
     }
 
@@ -30,7 +30,7 @@ public class GestionUsuario {
         usuarioDAO.update(usuario);
     }
 
-    public void deleteUsuario(Long id) {
+    public void deleteUsuario(int id) {
         usuarioDAO.delete(id);
     }
 }

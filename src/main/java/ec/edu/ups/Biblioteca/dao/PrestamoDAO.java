@@ -20,7 +20,7 @@ public class PrestamoDAO {
         return query.getResultList();
     }
 
-    public Prestamo findById(Long id) {
+    public Prestamo findById(int id) {
         return entityManager.find(Prestamo.class, id);
     }
 
@@ -32,7 +32,7 @@ public class PrestamoDAO {
         entityManager.merge(prestamo);
     }
 
-    public void delete(Long id) {
+    public void delete(int id) {
         Prestamo prestamo = findById(id);
         if (prestamo != null) {
             entityManager.remove(prestamo);

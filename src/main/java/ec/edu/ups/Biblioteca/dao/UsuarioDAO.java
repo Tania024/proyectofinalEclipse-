@@ -21,7 +21,7 @@ public class UsuarioDAO {
         return query.getResultList();
     }
 
-    public Usuario findById(Long id) {
+    public Usuario findById(int id) {
         return entityManager.find(Usuario.class, id);
     }
 
@@ -33,7 +33,7 @@ public class UsuarioDAO {
         entityManager.merge(usuario);
     }
 
-    public void delete(Long id) {
+    public void delete(int id) {
         Usuario usuario = findById(id);
         if (usuario != null) {
             entityManager.remove(usuario);

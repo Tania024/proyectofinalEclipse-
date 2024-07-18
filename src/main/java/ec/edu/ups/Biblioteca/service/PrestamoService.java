@@ -30,7 +30,7 @@ public class PrestamoService {
     @GET
     @Produces("application/json")
     @Path("/{id}")
-    public Prestamo getPrestamoById(@PathParam("id") Long id) {
+    public Prestamo getPrestamoById(@PathParam("id") int id) {
         return gestionPrestamo.getPrestamoById(id);
     }
 
@@ -46,7 +46,7 @@ public class PrestamoService {
     @Consumes("application/json")
     @Produces("application/json")
     @Path("/{id}")
-    public Response updatePrestamo(@PathParam("id") Long id, Prestamo prestamo) {
+    public Response updatePrestamo(@PathParam("id") int id, Prestamo prestamo) {
         prestamo.setId(id);
         gestionPrestamo.updatePrestamo(prestamo);
         return Response.status(Response.Status.OK).entity(prestamo).build();
@@ -54,7 +54,7 @@ public class PrestamoService {
 
     @DELETE
     @Path("/{id}")
-    public Response deletePrestamo(@PathParam("id") Long id) {
+    public Response deletePrestamo(@PathParam("id") int id) {
         gestionPrestamo.deletePrestamo(id);
         return Response.status(Response.Status.NO_CONTENT).build();
     }
