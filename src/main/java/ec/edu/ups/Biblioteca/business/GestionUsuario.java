@@ -20,6 +20,10 @@ public class GestionUsuario {
     public Usuario getUsuarioById(int id) {
         return usuarioDAO.findById(id);
     }
+    
+    public Usuario getUsuarioByUsernameAndPassword(String username, String password) {
+        return usuarioDAO.findByUsernameAndPassword(username, password);
+    }
 
     public Usuario createUsuario(Usuario usuario) {
         usuarioDAO.create(usuario);

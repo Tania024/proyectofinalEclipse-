@@ -24,6 +24,17 @@ public class UsuarioDAO {
     public Usuario findById(int id) {
         return entityManager.find(Usuario.class, id);
     }
+    
+    public Usuario findByUsernameAndPassword(String username, String password) {
+        try {
+            return entityManager.createQuery("SELECT u FROM Usuario u WHERE u.username = :username AND u.password = :password", Usuario.class)
+                    .setParameter("username", username)
+                    .setParameter("password", password)
+                    .getSingleResult();
+        } catch (Exception e) {
+            return null;
+        }
+    }
 
     public void create(Usuario usuario) {
         entityManager.persist(usuario);

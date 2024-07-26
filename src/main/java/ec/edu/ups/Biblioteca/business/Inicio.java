@@ -37,7 +37,7 @@ public class Inicio {
 		Usuario usuario  = new Usuario();
 		usuario.setUsername("Tania01");
 		usuario.setPassword("adimin");
-		usuario.setRol("admin");
+		usuario.setRol(1);
 		usuario.setCorreo("tlojano@est.ups.edu.ec");
 		
 		usuarioDAO.create(usuario);
@@ -52,7 +52,7 @@ public class Inicio {
 		
 		
 		Prestamo prestamo = new Prestamo();
-		prestamo.setEstado("Activo");
+		prestamo.setEstado("Disponible");
 		//prestamo.setFechaFin(null);
 		//prestamo.setFechaInicio(null);
 		prestamo.setMonto(45678.0);

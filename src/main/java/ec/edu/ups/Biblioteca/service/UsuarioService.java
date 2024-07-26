@@ -12,6 +12,8 @@ import jakarta.ws.rs.PUT;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.QueryParam;
+import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 
 @Path("/usuarios")
@@ -31,6 +33,18 @@ public class UsuarioService  {
     @Path("/{id}")
     public Usuario getUsuarioById(@PathParam("id") int id) {
         return gestionUsuario.getUsuarioById(id);
+    }
+    
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/autenticacion")
+    public Response authenticateUser(@QueryParam("username") String username, @QueryParam("password") String password) {
+        Usuario usuario = gestionUsuario.getUsuarioByUsernameAndPassword(username, password);
+        if (usuario != null) {
+            return Response.ok(usuario).build();
+        } else {
+            return Response.status(Response.Status.UNAUTHORIZED).entity("Usuario o contraseña incorrectos").build();
+        }
     }
 
     @POST

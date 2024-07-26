@@ -22,10 +22,10 @@ public class Usuario {
     private int id;
     private String username;
     private String password;
-    private String rol;
+    private int rol;
     private String correo;
 
-    // Getters and setters
+	// Getters and setters
     public int getId() {
 		return id;
 	}
@@ -50,14 +50,14 @@ public class Usuario {
         this.password = password;
     }
 
-    public String getRol() {
-        return rol;
-    }
+    public int getRol() {
+		return rol;
+	}
 
-    public void setRol(String rol) {
-        this.rol = rol;
-    }
-
+	public void setRol(int rol) {
+		this.rol = rol;
+	}
+    
     public String getCorreo() {
         return correo;
     }
