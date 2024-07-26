@@ -31,7 +31,7 @@ public class UsuarioService  {
     @GET
     @Produces("application/json")
     @Path("/{id}")
-    public Usuario getUsuarioById(@PathParam("id") int id) {
+    public Usuario getUsuarioById(@PathParam("id") Long id) {
         return gestionUsuario.getUsuarioById(id);
     }
     
@@ -57,7 +57,7 @@ public class UsuarioService  {
     @PUT
     @Produces("application/json")
     @Path("/{id}")
-    public Response updateUsuario(@PathParam("id") int id, Usuario usuario) {
+    public Response updateUsuario(@PathParam("id") Long id, Usuario usuario) {
         usuario.setId(id);
         gestionUsuario.updateUsuario(usuario);
         return Response.ok().entity(usuario).build();
@@ -66,7 +66,7 @@ public class UsuarioService  {
     @DELETE
     @Produces("application/json")
     @Path("/{id}")
-    public Response deleteUsuario(@PathParam("id") int id) {
+    public Response deleteUsuario(@PathParam("id") Long id) {
         gestionUsuario.deleteUsuario(id);
         return Response.status(Response.Status.NO_CONTENT).build();
     }
