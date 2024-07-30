@@ -4,6 +4,7 @@ import java.util.List;
 
 import ec.edu.ups.Biblioteca.dao.LibroDAO;
 import ec.edu.ups.Biblioteca.model.Libro;
+import ec.edu.ups.Biblioteca.model.LibroClase;
 import jakarta.ejb.Stateless;
 import jakarta.inject.Inject;
 
@@ -32,5 +33,9 @@ public class GestionLibro {
 
     public void deleteLibro(Long id) {
         libroDAO.delete(id);
+    }
+    
+    public List<LibroClase> librosReporte() {
+        return libroDAO.obtenerLibrosMasPrestados();
     }
 }

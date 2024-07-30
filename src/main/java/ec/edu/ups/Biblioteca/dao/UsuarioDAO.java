@@ -10,7 +10,7 @@ import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.Query;
 
 @Stateless
-public class UsuarioDAO {
+public class UsuarioDAO implements Serializable{
 
     @PersistenceContext()
     private EntityManager entityManager;

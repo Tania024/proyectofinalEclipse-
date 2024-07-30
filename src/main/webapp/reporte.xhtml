@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head>
+    <link rel="stylesheet" type="text/css" href="menu.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        function abrirGrafico() {
+            var nombres = encodeURIComponent('#{historial.nombresDeLibros}');
+            var cantidades = encodeURIComponent('#{historial.cantidadesDeLibros}');
+            window.open('report.html?nombres=' + nombres + '&amp;cantidades=' + cantidades);
+        }
+
+    </script>
+</h:head>
+<body>
+<div class="container">
+    <div class="header">
+        <img class="logo" src="img.jpg" />
+        <div class="header-menu">
+            <a href="/Biblioteca/inicio.xhtml">Inicio</a>
+            <a href="/Biblioteca/registroLibro.xhtml">Agregar</a>
+            <a href="/Biblioteca/historial.xhtml">Historial</a>
+            <a href="/Biblioteca/reporte.xhtml">Reporte</a>
+        </div>
+        <div class="header-icons">
+        </div>
+    </div>
+    <div class="mySwiper">
+        <h:form>
+            <h:commandButton value="Mostrar Gráfico" type="button" onclick="abrirGrafico()" styleClass="btn btn-primary"/>
+        </h:form>
+    </div>
+    <div class="swiper-pagination"></div>
+</div>
+</body>
+</html>

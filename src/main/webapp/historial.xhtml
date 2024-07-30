@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head>
+    <link rel="stylesheet" type="text/css" href="menu.css" />
+</h:head>
+<body>
+<div class="container">
+    <div class="header">
+        <img class="logo" src="img.jpg" />
+        <div class="header-menu">
+            <a href="/Biblioteca/inicio.xhtml">Inicio</a>
+            <a href="/Biblioteca/registroLibro.xhtml">Agregar</a>
+            <a href="/Biblioteca/historial.xhtml">Historial</a>
+            <a href="/Biblioteca/reporte.xhtml">Reporte</a>
+        </div>
+        <div class="header-icons">
+        </div>
+    </div>
+    <div class="mySwiper">
+        <div class="main-wrapper swiper-wrapper">
+            <h1>Historial</h1>
+            <div class="custom-wrapper">
+                <div class="custom-table">
+                    <div class="custom-row2 cuerpo">
+                        <div class="custom-cell">ID</div>
+                        <div class="custom-cell">Fecha Evento</div>
+                        <div class="custom-cell">Tipo Evento</div>
+                        <div class="custom-cell">Descripcion</div>
+                        <div class="custom-cell">Prestamo</div>
+                        <div class="custom-cell">Libro</div>
+                        <div class="custom-cell">Usuario</div>
+                    </div>
+                    <ui:repeat value="#{historial.historialPrestamoList}" var="historialf">
+                        <div class="custom-row2">
+                            <div class="custom-cell" data-title="ID">#{historialf.id}</div>
+                            <div class="custom-cell" data-title="Fecha Evento">#{historialf.fechaEvento}</div>
+                            <div class="custom-cell" data-title="Tipo Evento">#{historialf.tipoEvento}</div>
+                            <div class="custom-cell" data-title="Descripcion">#{historialf.descripcion}</div>
+                            <div class="custom-cell" data-title="Prestamo">#{historialf.prestamo.id}</div>
+                            <div class="custom-cell" data-title="Libro">#{historialf.prestamo.libro}</div>
+                            <div class="custom-cell" data-title="Usuario">#{historialf.prestamo.usuario}</div>
+                        </div>
+                    </ui:repeat>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="swiper-pagination"></div>
+</div>
+</body> 
+</html>

@@ -6,11 +6,10 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
+import jakarta.json.bind.annotation.JsonbDateFormat;
 
 @Entity
 @Table(name = "TBL_PRESTAMO")
@@ -18,47 +17,30 @@ public class Prestamo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-
-    private Double monto;
-    private Double tasaInteres;
+    private Long id;
+    private int dias;
+    private int caducado;
 
     @Temporal(TemporalType.DATE)
+    @JsonbDateFormat("yyyy-MM-dd")
     private Date fechaInicio;
 
     @Temporal(TemporalType.DATE)
+    @JsonbDateFormat("yyyy-MM-dd")
     private Date fechaFin;
-
-    private String estado;
-
-    @ManyToOne
-    @JoinColumn(name = "usuario_id")
-    private Usuario usuario;
+    private int estado;
+    private int libro;
+    private int usuario;
 
     // Getters and Setters
-    public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-    public Double getMonto() {
-        return monto;
+    public Long getId() {
+        return id;
     }
 
-	public void setMonto(Double monto) {
-        this.monto = monto;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public Double getTasaInteres() {
-        return tasaInteres;
-    }
-
-    public void setTasaInteres(Double tasaInteres) {
-        this.tasaInteres = tasaInteres;
-    }
 
     public Date getFechaInicio() {
         return fechaInicio;
@@ -76,19 +58,44 @@ public class Prestamo {
         this.fechaFin = fechaFin;
     }
 
-    public String getEstado() {
+    public int getEstado() {
         return estado;
     }
 
-    public void setEstado(String estado) {
+    public void setEstado(int estado) {
         this.estado = estado;
     }
 
-    public Usuario getUsuario() {
+    public int getUsuario() {
         return usuario;
     }
 
-    public void setUsuario(Usuario usuario) {
+    public void setUsuario(int usuario) {
         this.usuario = usuario;
     }
+
+    public int getLibro() {
+        return libro;
+    }
+
+    public void setLibro(int libro) {
+        this.libro = libro;
+    }
+
+    public int getDias() {
+        return dias;
+    }
+
+    public void setDias(int dias) {
+        this.dias = dias;
+    }
+
+    public int getCaducado() {
+        return caducado;
+    }
+
+    public void setCaducado(int caducado) {
+        this.caducado = caducado;
+    }
+
 }

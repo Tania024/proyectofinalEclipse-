@@ -23,7 +23,7 @@
    <persistence-unit name="BibliotecaPersistenceUnit">
       <!-- If you are running in a production environment, add a managed
          data source, this configuration uses the JakartaEE default data source is just for development and testing! -->
-      <jta-data-source>java:jboss/datasources/bibDS</jta-data-source>
+      <jta-data-source>java:/PostgresDS</jta-data-source>
       <properties>
          <!--The database schema is auto created on deployment and dropped before redeploy.
              Note: the following configuration does not drop the tables on undeploy. If you prefer this, use this
@@ -38,6 +38,13 @@
          
          <property name="hibernate.show_sql" value="true" />
          <property name="hibernate.format_sql" value="true" />
+         
+          <!-- Configuración de PostgreSQL -->
+         <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
+         <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/bib" />
+         <property name="javax.persistence.jdbc.user" value="bib" />
+         <property name="javax.persistence.jdbc.password" value="bib" />
+         <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
       </properties>
    </persistence-unit>
 </persistence>

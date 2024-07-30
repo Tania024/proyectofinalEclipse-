@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gráfico de Libros</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<canvas id="myChart" width="400" height="400"></canvas>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Recuperar los parámetros de la URL
+        var urlParams = new URLSearchParams(window.location.search);
+        var nombres = urlParams.get('nombres') ? decodeURIComponent(urlParams.get('nombres')).split(',') : [];
+        var cantidades = urlParams.get('cantidades') ? decodeURIComponent(urlParams.get('cantidades')).split(',').map(Number) : [];
+
+        // Imprimir los datos en la consola para depuración
+        console.log('Nombres:', nombres);
+        console.log('Cantidades:', cantidades);
+
+        // Comprobar si hay datos suficientes para el gráfico
+        if (nombres.length && cantidades.every(cantidad => !isNaN(cantidad))) {
+            inicializarGrafico(nombres, cantidades);
+        } else {
+            console.error('Datos no válidos o insuficientes para el gráfico.');
+        }
+    });
+
+    // Función para inicializar el gráfico
+    function inicializarGrafico(nombres, cantidades) {
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: nombres,
+                datasets: [{
+                    label: 'Cantidad de Libros',
+                    data: cantidades,
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false
+            }
+        });
+    }
+</script>
+</body>
+</html>

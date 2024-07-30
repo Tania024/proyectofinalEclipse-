@@ -13,11 +13,8 @@ import jakarta.inject.Named;
 @Named("clientes")
 @RequestScoped
 public class VistaClientes implements Serializable {
-	
 	@Inject
 	private GestionClientes gClientes;
-	
-	
 	
 	private Cliente persona = new Cliente();
 	

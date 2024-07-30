@@ -1,5 +1,6 @@
 package ec.edu.ups.Biblioteca.dao;
 
+import java.io.Serializable;
 import java.util.List;
 
 import ec.edu.ups.Biblioteca.model.Prestamo;
@@ -9,7 +10,7 @@ import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.Query;
 
 @Stateless
-public class PrestamoDAO {
+public class PrestamoDAO implements Serializable{
 
     @PersistenceContext()
     private EntityManager entityManager;
@@ -20,7 +21,7 @@ public class PrestamoDAO {
         return query.getResultList();
     }
 
-    public Prestamo findById(int id) {
+    public Prestamo findById(Long id) {
         return entityManager.find(Prestamo.class, id);
     }
 
@@ -32,10 +33,24 @@ public class PrestamoDAO {
         entityManager.merge(prestamo);
     }
 
-    public void delete(int id) {
+    public void delete(Long id) {
         Prestamo prestamo = findById(id);
         if (prestamo != null) {
             entityManager.remove(prestamo);
         }
+    }
+    
+    public List<Prestamo> findByLibro(int libroId) {
+        String jpql = "SELECT p FROM Prestamo p WHERE p.libro = :libroId";
+        Query query = entityManager.createQuery(jpql, Prestamo.class);
+        query.setParameter("libroId", libroId);
+        return query.getResultList();
+    }
+
+    public List<Prestamo> findByUsuario(int usuarioId) {
+        String jpql = "SELECT p FROM Prestamo p WHERE p.usuario = :usuarioId";
+        Query query = entityManager.createQuery(jpql, Prestamo.class);
+        query.setParameter("usuarioId", usuarioId);
+        return query.getResultList();
     }
 }

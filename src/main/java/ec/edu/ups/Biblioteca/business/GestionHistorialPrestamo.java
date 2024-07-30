@@ -20,4 +20,9 @@ public class GestionHistorialPrestamo {
     public void addHistorial(HistorialPrestamo historialPrestamo) {
         historialPrestamoDAO.create(historialPrestamo);
     }
+    
+    public List<HistorialPrestamo> getAllHistorialPrestamo() {
+        return historialPrestamoDAO.getAll();
+    }
+
 }

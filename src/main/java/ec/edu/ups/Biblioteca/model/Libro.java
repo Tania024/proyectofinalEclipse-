@@ -1,6 +1,5 @@
 package ec.edu.ups.Biblioteca.model;
 
-import java.io.Serializable;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -19,8 +18,10 @@ public class Libro {
     private String autor;
     private String isbn;
     private Integer anioPublicacion;
+    private Double monto;
+    private int estado;
 
-    // Getters and Setters
+ // Getters and Setters
     public Long getId() {
         return id;
     }
@@ -61,15 +62,20 @@ public class Libro {
         this.anioPublicacion = anioPublicacion;
     }
 
-	@Override
-	public String toString() {
-		return "Libro [id=" + id + ", titulo=" + titulo + ", autor=" + autor + ", isbn=" + isbn + ", anioPublicacion="
-				+ anioPublicacion + "]";
-	}
-    
-    
-	
-	
+    public int getEstado() {
+        return estado;
+    }
 
+    public void setEstado(int estado) {
+        this.estado = estado;
+    }
+
+    public Double getMonto() {
+        return monto;
+    }
+
+    public void setMonto(Double monto) {
+        this.monto = monto;
+    }
     
 }
