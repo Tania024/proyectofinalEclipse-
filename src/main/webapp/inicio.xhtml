@@ -21,7 +21,9 @@
         </div>
     </div>
     <div class="mySwiper">
+    <br/><br/><br/><br/><br/><br/><br/>
         <div class="main-wrapper swiper-wrapper">
+        <br/><br/><br/><br/><br/>
             <h1>Listado de Libros</h1>
             <div class="custom-wrapper">
                 <div class="custom-table">
@@ -31,6 +33,7 @@
                         <div class="custom-cell">Año Publicación</div>
                         <div class="custom-cell">Estado</div>
                         <div class="custom-cell">isbn</div>
+                        <div class="custom-cell">monto</div>
                     </div>
                     <ui:repeat value="#{librobean.libroList}" var="libro">
                         <div class="custom-row">
@@ -39,6 +42,7 @@
                             <div class="custom-cell" data-title="Año Publicación">#{libro.anioPublicacion}</div>
                             <div class="custom-cell" data-title="Estado">#{libro.estado}</div>
                             <div class="custom-cell" data-title="isbn">#{libro.isbn}</div>
+                            <div class="custom-cell" data-title="monto">#{libro.monto}</div>
                         </div>
                     </ui:repeat>
                 </div>

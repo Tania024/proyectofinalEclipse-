@@ -5,7 +5,7 @@
       xmlns:h="http://java.sun.com/jsf/html"> 
 
 <h:head>
-	<link rel="stylesheet" type="text/css" href="menuL.css" />
+	<link rel="stylesheet" type="text/css" href="menu.css" />
 </h:head> 
 <body> 
 	<div class="container">
@@ -22,7 +22,9 @@
     </div>
     <div class="mySwiper">
         <div class="main-wrapper swiper-wrapper">
+        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
             <div class="form-container">
+            <br/><br/><br/><br/><br/><br/><br/>
                 <h2>Contact Us</h2>
                 <h:form>
                     <div class="form-group">
@@ -47,6 +49,10 @@
                     <div class="form-group">
                         <h:outputLabel for="anio" value="Año Publicaion:" />
                         <h:inputText id="anio" class="inputText" value="#{librobean.libro.anioPublicacion}" />
+                    </div>
+                    <div class="form-group">
+                        <h:outputLabel for="monto" value="Monto:" />
+                        <h:inputText id="monto" class="inputText" value="#{librobean.libro.monto}" />
                     </div>
                     <div class="form-group">
                         <h:commandButton action="#{librobean.guardar}" value="Guardar" class="btn" />

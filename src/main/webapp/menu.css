@@ -18,7 +18,7 @@
 }
 
 img {
-    max-width: 100%;
+    max-width: 50%;
 }
 
 a {
@@ -29,7 +29,7 @@ a {
 h1,
 h2,
 h3 {
-    margin: 0;
+    margin: 12;
 }
 
 body {
@@ -56,7 +56,7 @@ body {
 }
 
 .logo {
-    width: 116px;
+    width: 50px;
 }
 
 .header {
@@ -251,12 +251,12 @@ h2 {
 
 @media screen and (max-width: 580px) {
     .custom-row2 {
-        padding: 14px 0 7px;
+        padding: 14px 0 35px;
         display: block;
     }
     .custom-row2.header {
         padding: 0;
-        height: 6px;
+        height: 32px;
     }
     .custom-row2.header .custom-cell {
         display: none;
@@ -318,5 +318,5 @@ h2 {
 }
 
 .mySwiper {
-    margin-top: -600px; /* Ajusta este valor según sea necesario */
+    margin-top: -300px; /* Ajusta este valor según sea necesario */
 }
